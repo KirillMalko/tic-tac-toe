@@ -21,21 +21,21 @@ class TicTacToe {
     }
 
     getCurrentPlayerSymbol() {
-        return this.currentPlayer.symbol;
+        return this.currentPlayer.symbol;        
     }
 
     nextTurn(rowIndex, columnIndex) {
         if (!this.getFieldValue(rowIndex, columnIndex)) {
             this.matrix[rowIndex][columnIndex] = this.getCurrentPlayerSymbol();
 
-            if (this.currentPlayer === this.player2) {
+            if (this.currentPlayer == this.player2) {
                 this.currentPlayer = this.player1;
             } else {
                 this.currentPlayer = this.player2;
             }
         }
     }
-
+    
     getFieldValue(rowIndex, colIndex) {
         return this.matrix[rowIndex][colIndex] ? this.matrix[rowIndex][colIndex] : null;
     }
@@ -48,7 +48,7 @@ class TicTacToe {
     }
 
     getWinner() {
-        if (this.matrix[0][0] && this.matrix[0][0] == this.matrix[0][1] && this.matrix[0][0]  == this.matrix[0][2]) {
+          if (this.matrix[0][0] && this.matrix[0][0] == this.matrix[0][1] && this.matrix[0][0]  == this.matrix[0][2]) {
             return this.matrix[0][0] == 'x' ? this.player1.symbol : this.player2.symbol;
         } else if (this.matrix[1][0] && this.matrix[1][0] == this.matrix[1][1] && this.matrix[1][0] == this.matrix[1][2]) {
             return this.matrix[1][0] == 'x' ? this.player1.symbol : this.player2.symbol;
@@ -63,7 +63,7 @@ class TicTacToe {
         } else if (this.matrix[0][0] && this.matrix[0][0] == this.matrix[1][1] && this.matrix[0][0] == this.matrix[2][2]) {
             return this.matrix[0][0] == 'x' ? this.player1.symbol : this.player2.symbol;
         } else if (this.matrix[2][0] && this.matrix[2][0] == this.matrix[1][1] && this.matrix[2][0] == this.matrix[0][2]) {
-            return this.matrix[2][0] == 'x' ? this.player1.symbol : this.player2.symbol;
+            return this.matrix[2][0] == 'x' ? this.player1.symbol : this.player2.symbol; 
         } else {
             return null;
         }
@@ -72,7 +72,7 @@ class TicTacToe {
     noMoreTurns() {
         for (let i = 0; i < 3; i++) {
             for (let j = 0; j < 3; j++) {
-                if (this.matrix[i][j] !== 'x' && this.matrix[i][j] !== 'y') {
+                if (this.matrix[i][j] !== 'x' && this.matrix[i][j] !== 'o') {
                     return false;
                 }
             }
@@ -87,5 +87,7 @@ class TicTacToe {
         return false;
     }
 
-
+    
 }
+
+module.exports = TicTacToe;
