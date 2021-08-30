@@ -6,7 +6,7 @@ class TicTacToe {
         };
         this.player2 = {
             name: 'Lien',
-            symbol: 'y'
+            symbol: 'o'
         };
         this.currentPlayer = this.player1;
         this.currentMove = 0;
